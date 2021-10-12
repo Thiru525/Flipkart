@@ -4,5 +4,8 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="lib" path="library/selenium-server-standalone-3.141.59.jar"/>
 	<classpathentry kind="lib" path="screenShots/commons-io-2.4.jar"/>
+	<classpathentry kind="lib" path="library/hamcrest-core-2.1.jar"/>
+	<classpathentry kind="lib" path="library/junit-4.13.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
