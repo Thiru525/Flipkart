@@ -7,8 +7,10 @@ import java.util.Set;
 import org.apache.commons.io.FileUtils;
 import org.junit.After;
 import org.junit.AfterClass;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -27,7 +29,7 @@ public class Flipkart {
 	@BeforeClass
 	public static void BeforeClass() {
 		System.setProperty("webdriver.chrome.driver",
-				"C:\\Users\\Thirumaran\\eclipse-workspace\\Flipkart\\Driver\\chromedriver.exe");
+				"C:\\Users\\Thirumaran\\eclipse-workspace\\FLIPKART\\Flipkart\\Driver\\chromedriver.exe");
 		driver = new ChromeDriver();
 		driver.get("https://www.flipkart.com/");
 		String currentUrl = driver.getCurrentUrl();
@@ -42,7 +44,7 @@ public class Flipkart {
 
 	@AfterClass
 	public static void afterClass() throws InterruptedException {
-		Thread.sleep(3000);
+		
 		driver.quit();
 	}
 
@@ -110,12 +112,19 @@ public class Flipkart {
 		// WebElement resolution = ;
 		// System.out.println(resolution.getText());
 		Actions ac = new Actions(driver);
-		ac.doubleClick(driver.findElement(By.xpath("//li[contains(text(),'1600 x 720 Pixels')]"))).perform();
+		WebElement pixel = driver.findElement(By.xpath("//li[contains(text(),'1600 x 720 Pixels')]"));
+		//Assert.assertTrue(pixel.isDisplayed());
+		System.out.println(pixel.getText());
+		String text = pixel.getText();
+		System.out.println(text);
+		Assert.assertEquals("1600 x 720 Pixels", text);
+		ac.doubleClick().perform();
 
 		// ac.doubleClick(resolution).perform();
 
 	}
-
+	
+@Ignore
 	@Test
 	public void m5() throws IOException {
 		TakesScreenshot tak = (TakesScreenshot) driver;
